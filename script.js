@@ -6,7 +6,7 @@ let app_div = document.getElementById ('app');
 
 function home () {
     let div = document.createElement('div');
-    let link = document.creatElement('a');
+    let link = document.createElement('a');
 
     link.href = '#/about';
     link.innerText = 'About';
@@ -54,4 +54,21 @@ template('about', function() {
 
 route('/', 'home');
 route('/about', 'about');
+
+function resolveRoute(route){
+    try{
+        return routes[route];
+    }
+    catch(e){
+        throw new Error (`Route ${route} not found`);
+    };
+};
+function router(evt){
+    let url= window.location.hash.slice(1) || '/';
+    let route= resolveRoute(url);
+    route()
+};
+
+window.addEventListener('load',router);
+window.addEventListener('hashchange', router);
 
