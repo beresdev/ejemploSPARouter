@@ -6,7 +6,7 @@ let app_div = document.getElementById ('app');
 
 function home () {
     let div = document.createElement('div');
-    let link = document.creatElement('a');
+    let link = document.createElement('a');
 
     link.href = '#/about';
     link.innerText = 'About';
@@ -67,4 +67,8 @@ function router(evt){
     let url= window.location.hash.slice(1) || '/';
     let route= resolveRoute(url);
     route()
-}
+};
+
+window.addEventListener('load',router);
+window.addEventListener('hashchange', router);
+
