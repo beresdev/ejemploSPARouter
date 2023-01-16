@@ -15,6 +15,8 @@ function home() {
     let linkb = document.createElement('a');
     let br2 = document.createElement('br')
     let linkR = document.createElement('a');
+    let br3 = document.createElement('br')
+    let linkc = document.createElement('a');
 
     link.href = '#/about'; //Le agrega el atributo href a la etiqueta <a> 
     link.innerText = 'About'; //Le agrega el contenido a la etiqueta <a>
@@ -25,6 +27,10 @@ function home() {
 
     linkR.href = '#/registro';
     linkR.innerText = 'registrate';
+    
+    linkc.href = '#/contact';//Le agrega el atributo href a la etiqueta <a>
+    linkc.innerText = 'Contact';
+
     div.innerHTML = '<h1>Home</h1>'; // Inserta una etiqueta <h1> al div
     //Resultado: <div><h1>Home</h1></div>
     div.appendChild(link); // A div se le agrega un nodo (la etiqueta <a href='#/about'>About</a>)
@@ -33,7 +39,9 @@ function home() {
     div.appendChild(linkb);
     div.appendChild(br2)
     div.appendChild(linkR)
-    
+    div.appendChild(br3)
+    div.appendChild(linkc); 
+
     app_div.appendChild(div);
     // Resultado:
     // <div id='app'>
@@ -42,6 +50,7 @@ function home() {
     //         <a href='#/about'>About</a>
     //     </div>
     // </div>
+
 };
 
 //FUNCIÓN DE LA VISTA ABOUT
@@ -53,6 +62,8 @@ function about() {
     let linkR = document.createElement('a')
     let br2 = document.createElement('br');
     let linkb = document.createElement('a');
+    let br3 = document.createElement('br');
+    let linkc = document.createElement('a');
 
     link.href = '#/';//Le agrega el atributo href a la etiqueta <a>
     link.innerText = 'Home'; //Le agrega el contenido a la etiqueta <a>
@@ -63,6 +74,8 @@ function about() {
 
     linkR.href = '#/registro';
     linkR.innerText = 'registrate';
+    linkc.href = '#/contact';
+    linkc.innerText = 'Contact';
 
     div.innerHTML = '<h1>About</h1>';// Inserta una etiqueta <h1> al div
     //Resultado: <div><h1>About</h1></div>
@@ -73,6 +86,9 @@ function about() {
     div.appendChild(linkb);
     div.appendChild(br2);
     div.appendChild(linkR);
+    div.appendChild(br3);
+    div.appendChild(linkc); 
+
     app_div.appendChild(div);
     // Resultado:
     // <div id='app'>
@@ -95,6 +111,8 @@ function blog() {
     let h3 = document.createElement('h3');
     let img = document.createElement('img');
     let p = document.createElement('p');
+    let br3 = document.createElement('br');
+    let linkc = document.createElement('a');
 
     link.href = '#/';
     link.innerText = 'Home';
@@ -104,6 +122,9 @@ function blog() {
 
     linkR.href = '#/registro';
     linkR.innerText = 'registrate';
+
+    linkc.href = '#/contact';
+    linkc.innerText = 'contact';
 
     section.innerHTML = '<h1>Blog</h1>';
 
@@ -120,6 +141,8 @@ function blog() {
     section.appendChild(linkR);
     section.appendChild(img);
     section.appendChild(p);
+    section.appendChild(br3);
+    section.appendChild(linkc);
 
     app_div.appendChild(section);
 }
@@ -134,6 +157,11 @@ function registrar() {
     let br2 = document.createElement('br');
     let link3 = document.createElement('a')
     let br3 = document.createElement('br');
+    let linkc = document.createElement('a')
+    let br4 = document.createElement('br');
+
+
+    
     link.href = '#/'
     link.innerText = 'Home';
 
@@ -144,6 +172,9 @@ function registrar() {
     link3.href = '#/blog';
     link3.innerText = 'Blog';
 
+    linkc.href = '#/contact';
+    linkc.innerText = 'Contact';
+
     div.innerText = 'Bienvenida a nuestra plataforma'
     div.appendChild(br);
     div.appendChild(link);
@@ -151,8 +182,63 @@ function registrar() {
     div.appendChild(linkb);
     div.appendChild(br3);
     div.appendChild(link3);
+    div.appendChild(br4);
+    div.appendChild(linkc);
+
     app_div.appendChild(div)
 }
+
+//FUNCIÓN DE LA VISTA CONTACT
+function contact() {
+    console.log('inicia función contact')
+    let div = document.createElement('div');//Crea un div 
+    let link = document.createElement('a');//Crea una etiqueta <a>
+    let br = document.createElement('br');
+    let linkc = document.createElement('a');
+    let br1 = document.createElement('br');
+    let linkb = document.createElement('a');//Crea una etiqueta <a>
+    let br2 = document.createElement('br');
+    let linkr = document.createElement('a');
+    let br3 = document.createElement('br');
+
+    link.href = '#/';//Le agrega el atributo href a la etiqueta <a>
+    link.innerText = 'Home'; //Le agrega el contenido a la etiqueta <a>
+    //Resultado: <a href='#/'>Home</a>
+
+    linkc.href = '#/about';
+    linkc.innerText = 'About';
+
+    linkb.href = '#/blog';
+    linkb.innerText = 'Blog';
+
+    linkr.href = '#/registro';
+    linkr.innerText = 'registrate';
+
+    div.innerHTML = '<h1>Contact</h1>';// Inserta una etiqueta <h1> al div
+    //Resultado: <div><h1>About</h1></div>
+
+    div.appendChild(link); // A div se le agrega un nodo (la etiqueta <a href='#/'>Home</a>)
+    //Resultado: <div><h1>About</h1>  <a href='#/'>Home</a> </div>
+    div.appendChild(br);
+    div.appendChild(linkc);
+    div.appendChild(br1);
+    div.appendChild(linkb);
+    div.appendChild(br2);
+    div.appendChild(linkr);
+    div.appendChild(br3);
+
+
+    app_div.appendChild(div);
+    // Resultado:
+    // <div id='app'>
+    //     <div>
+    //         <h1>Contact</h1>
+    //         <a href='#/'>Home</a>
+    //     </div>
+    // </div>
+};
+
+
 //FUNCIÓN ROUTE
 function route(path, template) { //Le entregamos dos parámetros a la función route: path('#/' o '#/About') 
     //y template (las funciones home y about)
@@ -199,10 +285,15 @@ template('registrar', function () {
     registrar();
 })
 
+template('contact', function () { //Se crea una función anónima
+    contact(); // Le asigna a la función anónima la función contact()
+})
+
 route('/', 'home'); // Ejecuta la función route con los parámetros path('/') y template('home')
 route('/about', 'about'); // Ejecuta la función route von los parámetros path ('/about) y template ('about')
 route('/registro', 'registrar');
 route('/blog', 'blog');
+route('/contact', 'contact'); // Ejecuta la función route con los parámetros path ('/about) y template ('about')
 
 function resolveRoute(route) {
     console.log('se ejecuta la función resolveRoute')
