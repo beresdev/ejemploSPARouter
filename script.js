@@ -166,8 +166,7 @@ function registrar() {
     div.appendChild(link3);
     app_div.appendChild(div)
 }
-//A: FUNCIÓN DE LA VISTA CONTACT
-function contact() {
+
 //FUNCIÓN DE LA VISTA CONTACT
 function contact() {
     console.log('inicia función contact')
