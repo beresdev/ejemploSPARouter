@@ -15,6 +15,8 @@ function home() {
     let linkb = document.createElement('a');
     let br2 = document.createElement('br')
     let linkR = document.createElement('a');
+    let divc = document.createElement('div'); //Crea un div 
+    let linkc = document.createElement('a');
 
     link.href = '#/about'; //Le agrega el atributo href a la etiqueta <a> 
     link.innerText = 'About'; //Le agrega el contenido a la etiqueta <a>
@@ -25,6 +27,9 @@ function home() {
 
     linkR.href = '#/registro';
     linkR.innerText = 'registrate';
+    linkc.href = '#/contact';//Le agrega el atributo href a la etiqueta <a>
+    linkc.innerText = 'Contact';
+
     div.innerHTML = '<h1>Home</h1>'; // Inserta una etiqueta <h1> al div
     //Resultado: <div><h1>Home</h1></div>
     div.appendChild(link); // A div se le agrega un nodo (la etiqueta <a href='#/about'>About</a>)
@@ -33,6 +38,7 @@ function home() {
     div.appendChild(linkb);
     div.appendChild(br2)
     div.appendChild(linkR)
+    divc.appendChild(linkc); 
 
     app_div.appendChild(div);
     // Resultado:
@@ -42,6 +48,8 @@ function home() {
     //         <a href='#/about'>About</a>
     //     </div>
     // </div>
+    app_div.appendChild(divc);
+
 };
 
 //FUNCIÓN DE LA VISTA ABOUT
@@ -53,6 +61,8 @@ function about() {
     let linkR = document.createElement('a')
     let br2 = document.createElement('br');
     let linkb = document.createElement('a');
+    let divc = document.createElement('div');
+    let linkc = document.createElement('a');
 
     link.href = '#/';//Le agrega el atributo href a la etiqueta <a>
     link.innerText = 'Home'; //Le agrega el contenido a la etiqueta <a>
@@ -63,6 +73,8 @@ function about() {
 
     linkR.href = '#/registro';
     linkR.innerText = 'registrate';
+    linkc.href = '#/contact';
+    linkc.innerText = 'Contact';
 
     div.innerHTML = '<h1>About</h1>';// Inserta una etiqueta <h1> al div
     //Resultado: <div><h1>About</h1></div>
@@ -73,6 +85,8 @@ function about() {
     div.appendChild(linkb);
     div.appendChild(br2);
     div.appendChild(linkR);
+    divc.appendChild(linkc); 
+
     app_div.appendChild(div);
     // Resultado:
     // <div id='app'>
@@ -81,6 +95,7 @@ function about() {
     //         <a href='#/'>Home</a>
     //     </div>
     // </div>
+    app_div.appendChild(divc);
 };
 
 function blog() {
@@ -155,19 +170,27 @@ function registrar() {
 }
 //A: FUNCIÓN DE LA VISTA CONTACT
 function contact() {
+//FUNCIÓN DE LA VISTA CONTACT
+function contact () {
     console.log('inicia función contact')
     let div = document.createElement('div');//Crea un div 
     let link = document.createElement('a');//Crea una etiqueta <a>
 
+    let divc = document.createElement('div');//Crea un div 
+    let linkc = document.createElement('a');//Crea una etiqueta <a>
+
     link.href = '#/';//Le agrega el atributo href a la etiqueta <a>
+    linkc.href = '#/about';
     link.innerText = 'Home'; //Le agrega el contenido a la etiqueta <a>
     //Resultado: <a href='#/'>Home</a>
+    linkc.innerText = 'About';
 
     div.innerHTML = '<h1>Contact</h1>';// Inserta una etiqueta <h1> al div
     //Resultado: <div><h1>About</h1></div>
 
     div.appendChild(link); // A div se le agrega un nodo (la etiqueta <a href='#/'>Home</a>)
     //Resultado: <div><h1>About</h1>  <a href='#/'>Home</a> </div>
+    div.appendChild(linkc);
 
 
     app_div.appendChild(div);
@@ -178,6 +201,7 @@ function contact() {
     //         <a href='#/'>Home</a>
     //     </div>
     // </div>
+    app_div.appendChild(divc);
 };
 
 
