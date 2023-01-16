@@ -10,25 +10,39 @@ let app_div = document.getElementById('app');
 function home() {
     console.log('inicia función home')
     let div = document.createElement('div'); //Crea un div 
+    let div2=document.createElement('div')
     let link = document.createElement('a'); //Crea una etiqueta <a>
+<<<<<<< HEAD
     let br = document.createElement('br')
     let linkb = document.createElement('a');
+=======
+    let link2 = document.createElement('a');
+>>>>>>> 7b5deff (ejemplo de router)
 
     link.href = '#/about'; //Le agrega el atributo href a la etiqueta <a> 
     link.innerText = 'About'; //Le agrega el contenido a la etiqueta <a>
     //Resultado: <a href='#/about'>About</a>
+<<<<<<< HEAD
 
     linkb.href = '#/blog';
     linkb.innerText = 'Blog';
 
+=======
+link2.href='#/registro';
+link2.innerText='registrate';
+>>>>>>> 7b5deff (ejemplo de router)
     div.innerHTML = '<h1>Home</h1>'; // Inserta una etiqueta <h1> al div
     //Resultado: <div><h1>Home</h1></div>
-
     div.appendChild(link); // A div se le agrega un nodo (la etiqueta <a href='#/about'>About</a>)
     //Resultado: <div><h1>Home</h1>  <a href='#/about'>About</a> </div>
+<<<<<<< HEAD
     div.appendChild(br);
     div.appendChild(linkb);
 
+=======
+div2.appendChild(link2)
+app_div.appendChild(div2)
+>>>>>>> 7b5deff (ejemplo de router)
     app_div.appendChild(div);
     // Resultado:
     // <div id='app'>
@@ -72,6 +86,7 @@ function about() {
     // </div>
 };
 
+<<<<<<< HEAD
 function blog() {
     // app_div.innerHTML('');
     console.log('Inicia la funcion blog')
@@ -108,6 +123,17 @@ function blog() {
 
 
  
+=======
+function registrar(){
+    let div = document.createElement('div');//Crea un div 
+    let link = document.createElement('a');//Crea una etiqueta <a>
+
+    link.href= '#/Registro'
+    link.innerText = 'Registrate';
+    div.innerText= 'Bienvenida a nuestra plataforma'
+app_div.appendChild(div)
+}
+>>>>>>> 7b5deff (ejemplo de router)
 //FUNCIÓN ROUTE
 function route(path, template) { //Le entregamos dos parámetros a la función route: path('#/' o '#/About') 
     //y template (las funciones home y about)
@@ -146,6 +172,7 @@ template('about', function () { //Se crea una función anónima
     about(); // Le asigna a la función anónima la función about()
 })
 
+<<<<<<< HEAD
 template('blog', function () { //Se crea una función anónima
     blog(); // Le asigna a la función anónima la función about()
 })
@@ -154,6 +181,14 @@ route('/', 'home'); // Ejecuta la función route con los parámetros path('/') y
 route('/about', 'about'); // Ejecuta la función route von los parámetros path ('/about) y template ('about')
 route('/blog', 'blog');
 
+=======
+template ('Registrar', function(){
+registrar();
+})
+route('/', 'home'); // Ejecuta la función route con los parámetros path('/') y template('home')
+route('/about', 'about'); // Ejecuta la función route von los parámetros path ('/about) y template ('about')
+route('/registro','registro');
+>>>>>>> 7b5deff (ejemplo de router)
 function resolveRoute(route) { 
     console.log('se ejecuta la función resolveRoute')
     try {
