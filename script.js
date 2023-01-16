@@ -48,7 +48,6 @@ function home() {
     //         <a href='#/about'>About</a>
     //     </div>
     // </div>
-    app_div.appendChild(divc);
 
 };
 
@@ -95,7 +94,6 @@ function about() {
     //         <a href='#/'>Home</a>
     //     </div>
     // </div>
-    app_div.appendChild(divc);
 };
 
 function blog() {
@@ -171,12 +169,11 @@ function registrar() {
 //A: FUNCIÓN DE LA VISTA CONTACT
 function contact() {
 //FUNCIÓN DE LA VISTA CONTACT
-function contact () {
+function contact() {
     console.log('inicia función contact')
     let div = document.createElement('div');//Crea un div 
     let link = document.createElement('a');//Crea una etiqueta <a>
-
-    let divc = document.createElement('div');//Crea un div 
+    let br = document.createElement('br');
     let linkc = document.createElement('a');//Crea una etiqueta <a>
 
     link.href = '#/';//Le agrega el atributo href a la etiqueta <a>
@@ -190,6 +187,7 @@ function contact () {
 
     div.appendChild(link); // A div se le agrega un nodo (la etiqueta <a href='#/'>Home</a>)
     //Resultado: <div><h1>About</h1>  <a href='#/'>Home</a> </div>
+    div.appendChild(br);
     div.appendChild(linkc);
 
 
@@ -201,7 +199,6 @@ function contact () {
     //         <a href='#/'>Home</a>
     //     </div>
     // </div>
-    app_div.appendChild(divc);
 };
 
 
