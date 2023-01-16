@@ -10,10 +10,10 @@ let app_div = document.getElementById('app');
 function home() {
     console.log('inicia función home')
     let div = document.createElement('div'); //Crea un div 
-    let divR=document.createElement('div')
     let link = document.createElement('a'); //Crea una etiqueta <a>
     let br = document.createElement('br')
     let linkb = document.createElement('a');
+    let br2 = document.createElement('br')
     let linkR = document.createElement('a');
 
     link.href = '#/about'; //Le agrega el atributo href a la etiqueta <a> 
@@ -23,17 +23,17 @@ function home() {
     linkb.href = '#/blog';
     linkb.innerText = 'Blog';
 
-linkR.href='#/registro';
-linkR.innerText='registrate';
+    linkR.href = '#/registro';
+    linkR.innerText = 'registrate';
     div.innerHTML = '<h1>Home</h1>'; // Inserta una etiqueta <h1> al div
     //Resultado: <div><h1>Home</h1></div>
     div.appendChild(link); // A div se le agrega un nodo (la etiqueta <a href='#/about'>About</a>)
     //Resultado: <div><h1>Home</h1>  <a href='#/about'>About</a> </div>
     div.appendChild(br);
     div.appendChild(linkb);
-
-divR.appendChild(linkR)
-app_div.appendChild(divR)
+    div.appendChild(br2)
+    div.appendChild(linkR)
+    
     app_div.appendChild(div);
     // Resultado:
     // <div id='app'>
@@ -50,6 +50,8 @@ function about() {
     let div = document.createElement('div');//Crea un div 
     let link = document.createElement('a');//Crea una etiqueta <a>
     let br = document.createElement('br');
+    let linkR = document.createElement('a')
+    let br2 = document.createElement('br');
     let linkb = document.createElement('a');
 
     link.href = '#/';//Le agrega el atributo href a la etiqueta <a>
@@ -59,6 +61,9 @@ function about() {
     linkb.href = '#/blog';
     linkb.innerText = 'Blog';
 
+    linkR.href = '#/registro';
+    linkR.innerText = 'registrate';
+
     div.innerHTML = '<h1>About</h1>';// Inserta una etiqueta <h1> al div
     //Resultado: <div><h1>About</h1></div>
 
@@ -66,7 +71,8 @@ function about() {
     //Resultado: <div><h1>About</h1>  <a href='#/'>Home</a> </div>
     div.appendChild(br);
     div.appendChild(linkb);
-
+    div.appendChild(br2);
+    div.appendChild(linkR);
     app_div.appendChild(div);
     // Resultado:
     // <div id='app'>
@@ -84,6 +90,8 @@ function blog() {
     let link = document.createElement('a');
     let br = document.createElement('br');
     let linkb = document.createElement('a');
+    let br2 = document.createElement('br');
+    let linkR = document.createElement('a');
     let h3 = document.createElement('h3');
     let img = document.createElement('img');
     let p = document.createElement('p');
@@ -93,6 +101,9 @@ function blog() {
 
     linkb.href = '#/about';
     linkb.innerText = 'About';
+
+    linkR.href = '#/registro';
+    linkR.innerText = 'registrate';
 
     section.innerHTML = '<h1>Blog</h1>';
 
@@ -105,6 +116,8 @@ function blog() {
     section.appendChild(link);
     section.appendChild(br);
     section.appendChild(linkb);
+    section.appendChild(br2);
+    section.appendChild(linkR);
     section.appendChild(img);
     section.appendChild(p);
 
@@ -112,15 +125,33 @@ function blog() {
 }
 
 
- 
-function registrar(){
+
+function registrar() {
     let div = document.createElement('div');//Crea un div 
     let link = document.createElement('a');//Crea una etiqueta <a>
+    let br = document.createElement('br');
+    let linkb = document.createElement('a')
+    let br2 = document.createElement('br');
+    let link3 = document.createElement('a')
+    let br3 = document.createElement('br');
+    link.href = '#/'
+    link.innerText = 'Home';
 
-    link.href= '#/Registro'
-    link.innerText = 'Registrate';
-    div.innerText= 'Bienvenida a nuestra plataforma'
-app_div.appendChild(div)
+
+    linkb.href = '#/about';
+    linkb.innerText = 'About';
+
+    link3.href = '#/blog';
+    link3.innerText = 'Blog';
+
+    div.innerText = 'Bienvenida a nuestra plataforma'
+    div.appendChild(br);
+    div.appendChild(link);
+    div.appendChild(br2);
+    div.appendChild(linkb);
+    div.appendChild(br3);
+    div.appendChild(link3);
+    app_div.appendChild(div)
 }
 //FUNCIÓN ROUTE
 function route(path, template) { //Le entregamos dos parámetros a la función route: path('#/' o '#/About') 
@@ -164,26 +195,26 @@ template('blog', function () { //Se crea una función anónima
     blog(); // Le asigna a la función anónima la función about()
 })
 
-template ('Registrar', function(){
-registrar();
+template('registrar', function () {
+    registrar();
 })
 
 route('/', 'home'); // Ejecuta la función route con los parámetros path('/') y template('home')
 route('/about', 'about'); // Ejecuta la función route von los parámetros path ('/about) y template ('about')
-route('/registro','registro');
+route('/registro', 'registrar');
 route('/blog', 'blog');
 
-function resolveRoute(route) { 
+function resolveRoute(route) {
     console.log('se ejecuta la función resolveRoute')
     try {
         return routes[route]; // Retorna el objeto ruta con el parámetro route
     }
     catch (e) {
         throw new Error(`Route ${route} not found`); //En caso de que la ruta no exista, arroja error
-    }; 
+    };
 };
 
-function router() { 
+function router() {
     console.log('entra función router')
     let url = window.location.hash.slice(1) || '/'; // guarda el valor de la ruta después del hash (gato o michi)
     console.log(url)
