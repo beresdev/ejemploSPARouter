@@ -33,7 +33,7 @@ function home() {
     div.appendChild(linkb);
     div.appendChild(br2)
     div.appendChild(linkR)
-    
+
     app_div.appendChild(div);
     // Resultado:
     // <div id='app'>
@@ -153,6 +153,34 @@ function registrar() {
     div.appendChild(link3);
     app_div.appendChild(div)
 }
+//A: FUNCIÓN DE LA VISTA CONTACT
+function contact() {
+    console.log('inicia función contact')
+    let div = document.createElement('div');//Crea un div 
+    let link = document.createElement('a');//Crea una etiqueta <a>
+
+    link.href = '#/';//Le agrega el atributo href a la etiqueta <a>
+    link.innerText = 'Home'; //Le agrega el contenido a la etiqueta <a>
+    //Resultado: <a href='#/'>Home</a>
+
+    div.innerHTML = '<h1>Contact</h1>';// Inserta una etiqueta <h1> al div
+    //Resultado: <div><h1>About</h1></div>
+
+    div.appendChild(link); // A div se le agrega un nodo (la etiqueta <a href='#/'>Home</a>)
+    //Resultado: <div><h1>About</h1>  <a href='#/'>Home</a> </div>
+
+
+    app_div.appendChild(div);
+    // Resultado:
+    // <div id='app'>
+    //     <div>
+    //         <h1>Contact</h1>
+    //         <a href='#/'>Home</a>
+    //     </div>
+    // </div>
+};
+
+
 //FUNCIÓN ROUTE
 function route(path, template) { //Le entregamos dos parámetros a la función route: path('#/' o '#/About') 
     //y template (las funciones home y about)
@@ -199,10 +227,15 @@ template('registrar', function () {
     registrar();
 })
 
+template('contact', function () { //Se crea una función anónima
+    contact(); // Le asigna a la función anónima la función contact()
+})
+
 route('/', 'home'); // Ejecuta la función route con los parámetros path('/') y template('home')
 route('/about', 'about'); // Ejecuta la función route von los parámetros path ('/about) y template ('about')
 route('/registro', 'registrar');
 route('/blog', 'blog');
+route('/contact', 'contact'); // Ejecuta la función route con los parámetros path ('/about) y template ('about')
 
 function resolveRoute(route) {
     console.log('se ejecuta la función resolveRoute')
