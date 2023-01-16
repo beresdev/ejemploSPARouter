@@ -44,7 +44,7 @@ function about() {
     console.log('inicia función about')
     let div = document.createElement('div');//Crea un div 
     let link = document.createElement('a');//Crea una etiqueta <a>
-    let br = document.createElement('br')
+    let br = document.createElement('br');
     let linkb = document.createElement('a');
 
     link.href = '#/';//Le agrega el atributo href a la etiqueta <a>
@@ -77,20 +77,29 @@ function blog() {
     console.log('Inicia la funcion blog')
     let section = document.createElement('section');
     let link = document.createElement('a');
-    let h2 = document.createElement('h2');
+    let br = document.createElement('br');
+    let linkb = document.createElement('a');
+    let h3 = document.createElement('h3');
     let img = document.createElement('img');
     let p = document.createElement('p');
 
     link.href = '#/';
     link.innerText = 'Home';
 
-    h2.innerText = 'Titulo de la entrada';
+    linkb.href = '#/about';
+    linkb.innerText = 'About';
+
+    section.innerHTML = '<h1>Blog</h1>';
+
+    h3.innerText = 'Titulo de la entrada';
     img.src = 'https://images.pexels.com/photos/262508/pexels-photo-262508.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1';
     img.alt = 'Imagen de ejemplo con la palabra blog';
     p.innerText = 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis nemo, totam recusandae iusto amet impedit vero, magni nesciunt repudiandae est ex molestiae suscipit quasi! Porro accusantium mollitia sit eius quod eligendi fugit iure, alias eveniet, nemo error vel, enim voluptatum. Numquam dolore odit mollitia iure ullam qui nobis id sed! Quae, a, vel facilis minus cumque error soluta incidunt, beatae veniam optio deleniti esse id aut unde ratione obcaecati nam suscipit illum atque hic at autem eveniet? Atque, omnis assumenda maxime exercitationem eius reprehenderit fuga consequuntur praesentium recusandae voluptatibus quasi laborum voluptatem eum, et dignissimos quis! Consequatur doloribus similique optio.';
 
-    section.appendChild(h2);
+    section.appendChild(h3);
     section.appendChild(link);
+    section.appendChild(br);
+    section.appendChild(linkb);
     section.appendChild(img);
     section.appendChild(p);
 
@@ -167,4 +176,3 @@ console.log('escuchando evento load')
 window.addEventListener('load', router); // Con el evento load se ejecuta la función router
 console.log('escuchando evento hashchange')
 window.addEventListener('hashchange', router); // Con el evento hashchange, se ejecuta la función router
-
